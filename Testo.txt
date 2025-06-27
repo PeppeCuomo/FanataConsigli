@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consigli Fantacalcio Gratis</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      color: #222;
+    }
+    header {
+      background-color: #0033cc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #001f66;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background-color: #002b80;
+    }
+    section {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #0033cc;
+    }
+    .player-card {
+      background: #f0f0f0;
+      padding: 10px;
+      margin: 8px 0;
+      border-left: 5px solid #0033cc;
+    }
+    footer {
+      background-color: #001f66;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📊 Consigli Fantacalcio Gratis</h1>
+    <p>Formazioni, scommesse e dritte per dominare la tua lega!</p>
+  </header>
+
+  <nav>
+    <a href="#formazione">Formazione Ideale</a>
+    <a href="#scommesse">Scommesse Giornata</a>
+    <a href="#infortuni">Infortuni</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <section id="formazione">
+    <h2>⚽ Formazione Ideale 2024/2025</h2>
+    <div class="player-card">🧤 Portiere: Provedel</div>
+    <div class="player-card">🛡️ Difensori: Di Lorenzo, Bremer, Carlos Augusto</div>
+    <div class="player-card">🎯 Centrocampisti: Calhanoglu, Frattesi, Ferguson</div>
+    <div class="player-card">🔥 Attaccanti: Osimhen, Lautaro, Gudmundsson</div>
+  </section>
+
+  <section id="scommesse">
+    <h2>💥 Scommesse di giornata</h2>
+    <div class="player-card">🎯 Baldanzi – Contro squadre aperte può colpire</div>
+    <div class="player-card">🚀 Kristensen – Possibile bonus a sorpresa</div>
+    <div class="player-card">🎯 Retegui – In forma, da mettere!</div>
+  </section>
+
+  <section id="infortuni">
+    <h2>🚑 Infortunati e Squalificati</h2>
+    <div class="player-card">❌ Zaccagni – Problema muscolare (out 2 settimane)</div>
+    <div class="player-card">⚠️ Smalling – In dubbio per la prossima</div>
+    <div class="player-card">❌ Koopmeiners – Squalificato (1 giornata)</div>
+  </section>
+
+  <section id="faq">
+    <h2>❓Domande Frequenti</h2>
+    <p><strong>🔁 Quando vengono aggiornati i consigli?</strong><br>Ogni venerdì entro le 18:00 (pre-turno).</p>
+    <p><strong>📩 Posso inviare i miei dubbi formazione?</strong><br>Certo! Scrivici su Instagram @fantaconsigli_live</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Consigli Fantacalcio Gratis - Powered by Fantapassione</p>
+  </footer>
+
+</body>
+</html>
