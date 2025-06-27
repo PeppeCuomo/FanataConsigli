@@ -1,0 +1,156 @@
+from PIL import Image, ImageDraw, ImageFont
+from zipfile import ZipFile
+from pathlib import Path
+
+# Percorso pacchetto
+enhanced_site_folder = Path("/mnt/data/fantaconsigli-pro-site")
+enhanced_site_folder.mkdir(exist_ok=True)
+
+# index.html con favicon e logo
+enhanced_html = """
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consigli Fantacalcio Gratis</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo Fantaconsigli" style="height: 60px;"/>
+    <h1>📊 Consigli Fantacalcio Gratis</h1>
+    <p>Formazioni, scommesse e dritte per dominare la tua lega!</p>
+  </header>
+  <nav>
+    <a href="#formazione">Formazione Ideale</a>
+    <a href="#scommesse">Scommesse Giornata</a>
+    <a href="#infortuni">Infortuni</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <section id="formazione">
+    <h2>⚽ Formazione Ideale 2024/2025</h2>
+    <div class="player-card">🧤 Provedel</div>
+    <div class="player-card">🛡️ Di Lorenzo, Bremer, Carlos Augusto</div>
+    <div class="player-card">🎯 Calhanoglu, Frattesi, Ferguson</div>
+    <div class="player-card">🔥 Osimhen, Lautaro, Gudmundsson</div>
+  </section>
+  <section id="scommesse">
+    <h2>💥 Scommesse di giornata</h2>
+    <div class="player-card">🎯 Baldanzi – Contro squadre aperte può colpire</div>
+    <div class="player-card">🚀 Kristensen – Possibile bonus a sorpresa</div>
+    <div class="player-card">🎯 Retegui – In forma, da mettere!</div>
+  </section>
+  <section id="infortuni">
+    <h2>🚑 Infortunati e Squalificati</h2>
+    <div class="player-card">❌ Zaccagni – Problema muscolare</div>
+    <div class="player-card">⚠️ Smalling – In dubbio</div>
+    <div class="player-card">❌ Koopmeiners – Squalificato</div>
+  </section>
+  <section id="faq">
+    <h2>❓Domande Frequenti</h2>
+    <p><strong>🔁 Quando vengono aggiornati i consigli?</strong><br>Ogni venerdì entro le 18:00.</p>
+    <p><strong>📩 Posso inviare i miei dubbi formazione?</strong><br>Certo! Scrivici su Instagram @fantaconsigli_live</p>
+  </section>
+  <footer>
+    <p>&copy; 2025 Consigli Fantacalcio Gratis - Powered by Fantapassione</p>
+  </footer>
+</body>
+</html>
+"""
+
+# CSS con ottimizzazione mobile
+enhanced_css = """
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+  color: #222;
+}
+header {
+  background-color: #0033cc;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+header img {
+  display: block;
+  margin: 0 auto 10px;
+}
+nav {
+  background-color: #001f66;
+  text-align: center;
+}
+nav a {
+  color: white;
+  padding: 14px 20px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  background-color: #002b80;
+}
+section {
+  padding: 30px 20px;
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+h2 {
+  color: #0033cc;
+}
+.player-card {
+  background: #f0f0f0;
+  padding: 10px;
+  margin: 8px 0;
+  border-left: 5px solid #0033cc;
+}
+footer {
+  background-color: #001f66;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+@media (max-width: 600px) {
+  header, section {
+    padding: 20px 10px;
+  }
+  nav a {
+    display: block;
+    padding: 10px;
+  }
+}
+"""
+
+# Scrive index.html e style.css
+(enhanced_site_folder / "index.html").write_text(enhanced_html, encoding="utf-8")
+(enhanced_site_folder / "style.css").write_text(enhanced_css, encoding="utf-8")
+
+# Crea favicon (16x16 pixel)
+favicon = Image.new("RGB", (16, 16), "#0033cc")
+draw = ImageDraw.Draw(favicon)
+draw.rectangle([4, 4, 11, 11], fill="white")
+favicon_path = enhanced_site_folder / "favicon.ico"
+favicon.save(favicon_path)
+
+# Crea logo PNG semplice
+logo = Image.new("RGB", (400, 100), "#0033cc")
+draw = ImageDraw.Draw(logo)
+draw.text((30, 30), "FantaConsigli", fill="white")
+logo_path = enhanced_site_folder / "logo.png"
+logo.save(logo_path)
+
+# Crea ZIP
+zip_enhanced_path = "/mnt/data/fantaconsigli-pro.zip"
+with ZipFile(zip_enhanced_path, "w") as zipf:
+    zipf.write(enhanced_site_folder / "index.html", arcname="index.html")
+    zipf.write(enhanced_site_folder / "style.css", arcname="style.css")
+    zipf.write(favicon_path, arcname="favicon.ico")
+    zipf.write(logo_path, arcname="logo.png")
+
+zip_enhanced_path
